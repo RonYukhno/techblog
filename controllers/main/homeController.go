@@ -1,26 +1,21 @@
 package controllers
 
 import (
+	"techblog/utils"
+
 	"github.com/astaxie/beego"
 )
-
-var topHeader []string
 
 type HomeController struct {
 	beego.Controller
 }
 
-func DrawTemplate(m *HomeController, content string) {
-	m.Layout = "templates/basic-layout.tpl"
-	m.LayoutSections = make(map[string]string)
-	m.LayoutSections["header"] = "templates/header.tpl"
-	m.LayoutSections["content"] = content
-	m.LayoutSections["footer"] = "templates/footer.tpl"
-	m.TplName = content
-}
-
-func (m *HomeController) Get() {
-	topHeader := []string{"Новости", "Обзоры", "Лента"}
-	m.Data["topHeader"] = topHeader
-	DrawTemplate(m, "main/homeView.tpl")
+func (c *HomeController) Get() {
+	c.Data["topHeader"] = utils.TopHeader
+	// c.Layout = "templates/basic-layout.tpl"
+	// c.LayoutSections = make(map[string]string)
+	// c.LayoutSections["header"] = "templates/header.tpl"
+	// c.LayoutSections["content"] = "main/homeView.tpl"
+	// c.LayoutSections["footer"] = "templates/footer.tpl"
+	c.TplName = "main/homeView.tpl"
 }

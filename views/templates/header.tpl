@@ -7,7 +7,7 @@
 	<title>{{ .Title }}</title>
 
 	<link rel="stylesheet" href="/static/css/style.css">
-	<!-- <script src="/static/js/vue-router.js"></script> -->
+	<script src="/static/js/vue-router.js"></script>
 </head>
 <body>
 		<div class="header">
@@ -19,5 +19,5 @@
 				</ul>
 			</div>
 		</div>
-		<div class="content">
+		<div class="content" id="content">
 	
